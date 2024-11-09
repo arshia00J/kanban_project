@@ -64,10 +64,13 @@ textarea{
     width: 250px;
     border: none;
     color: #000;
-    
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
+}
+
+#subtask-con div input:focus{
+    outline: none;
 }
 
 #subtask-con div button img{
