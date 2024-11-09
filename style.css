@@ -1,0 +1,207 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Container for both sections */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+    /* Left section, 30% width */
+.left-section {
+    width: 366px;
+    background-color: #fff;
+    padding: 24px;
+    height: 100%;
+
+}
+.left-section #title{
+font-weight: 700;
+font-size: 20px;
+line-height: 30px;
+color: #667085;
+border: none;
+width: 318px;
+padding: 12px 6px;
+}
+
+textarea{
+    height: 100px;
+    background: #F2F4F7;
+    border-radius: 8px;
+    resize: none;
+    padding: 16px;
+    border: none;
+    width: 90%;
+}
+
+
+#subtask-con{
+    display: flex;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#subtask-con div{
+    display: flex;
+    gap: 8px;
+}
+
+#subtask-con img{
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+#subtask-con div input{
+    width: 250px;
+    border: none;
+    color: #000;
+    
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+#subtask-con div button img{
+    width: 24px;
+    height: 24px;
+    margin: none;
+}
+
+#subtask-con button{
+    padding: none;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+#action-buttons{
+    display: flex;
+    gap: 12px;
+}
+
+#action-buttons #clear_all{
+    background-color: #fff;
+    border: 1.4px solid #FF1616;    border-radius: 8px;
+    padding: 12px 16.5px;
+    color: #ff1616;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    width: 97px;
+    height: 48px;
+
+}
+#action-buttons #clear_all:hover{
+    background-color: #ff1616;
+    color: #fff;
+}
+
+#action-buttons #create_card{
+    background-color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 57px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    width: 209px;
+    height: 48px;
+}
+
+
+#action-buttons #create_card:hover{
+    background-color: #fff;
+    color: #000;
+    border: 1.4px solid #000;
+}
+
+
+
+
+/* Right section, 70% width */
+.right-section {
+    width: 100%;
+    background-color: #f3f4f7;
+    height: 100%;
+    display: flex;
+    padding: 40px 32px;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.column {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.column #todo-column{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: scroll;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 48px;
+    color: #000000;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+.right-section .column .card{
+    padding: 20px;
+    width: 320px;
+    border-radius: 8px;
+    background-color: #FCFCFD;
+    box-shadow: 0px 0.5px 2px 0px #1018284D;
+
+}
+.right-section .column .card h3{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: #2B2D31;
+    margin-bottom: 6px;
+}
+
+.right-section .column .card p{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    color: #98A2B3;
+    margin: 0;
+    padding: 0;
+}
+
+.right-section .column .card p span{
+    color: #687287;
+}
+
+.name_date{
+    display: flex;
+    gap: 24px;
+}
+
+.right-section .column .card .desc{
+    font-weight: 500;
+    margin-top: 16px;
+    padding: 0;
+}

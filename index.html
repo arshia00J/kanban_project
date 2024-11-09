@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="source.js"></script>
+
+  <title>Kanban</title>
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <input id="title" type="text" placeholder="Title *" required>       
+      <textarea id="description" placeholder="Description"></textarea>
+      <div id="subtask-con">
+        <div>
+          <img src="icons/issues.png" alt="">
+          <input type="text" placeholder="Subtask">
+        </div>
+        <button><img src="icons/new-feature.png" alt=""></button>
+        
+
+        
+      </div>
+        <div id="action-buttons">
+            <button id="clear_all">Clear All</button>
+            <button id="create_card" onclick="createCard()">Create Card</button>
+        </div>
+
+    </div>
+    <div class="right-section">
+      <div id="column1" class="column">
+        <h2>TO DO</h2>
+        <div id="todo-column">
+          <div class="card">
+            <h3>Make a Kanban App</h3>
+            <div class="name_date">
+              <p class="card_date">12 jan</p>
+              <p>Assigned to <span>Taha</span></p>  
+            </div>
+
+            <p class="desc">Please use trello and designs in Dribbble as reference. And carry on...</p>
+            
+          </div>
+        </div>
+      </div>
+      <div id="column2" class="column">
+        <h2>DOING</h2>
+        <div id="doing-column"></div>
+      </div>
+      <div id="column3" class="column">
+        <h2>DONE</h2>
+        <div id="done-column"></div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
