@@ -22,16 +22,47 @@
             <img src="icons/new-feature.png" alt="" />
           </button>
         </div>
-        <div id="sub-tasks">
 
+        <div id="sub-tasks">
           <div class="subtask-checkbox">
             <input type="checkbox" />
             <input type="text" placeholder="Placeholder" />
           </div>
-
-
         </div>
 
+        <div id="label-container">
+            <img src="icons/label.png" alt="" />
+            <p>Label</p>
+        </div>
+
+        <div class="labels">
+          <button class="label-button">Design</button>
+          <button class="label-button">Development</button>
+          <button class="label-button">Product</button>
+          <button class="label-button">Marketing</button>
+          <button class="label-button">Business</button>
+          <button class="label-button">Operation</button>
+        </div>
+
+        <div id="assignee-container">
+          <img src="icons/person.png" alt="" />
+          <p>Assignee</p>
+        </div>
+        <div class="persons">
+          <div>
+            <input type="radio" name="person">
+            <p>Taha Hosseinpour</p>
+          </div>
+          <div>
+            <input type="radio" name="person">
+            <p>Arshia Jafari</p>
+          </div>
+          <div>
+            <input type="radio" name="person">
+            <p>S.h Mostafavi</p>
+          </div>
+        </div>
+        
 
         <div id="action-buttons">
           <button id="clear_all">Clear All</button>
@@ -94,5 +125,18 @@
         </div>
       </div>
     </div>
+
+
+
+
+    <script>
+      document.querySelectorAll('.labels .label-button').forEach(button => {
+        button.addEventListener('click', () => {
+          button.classList.toggle('selected');
+        });
+      });
+    </script>
+
+
   </body>
 </html>

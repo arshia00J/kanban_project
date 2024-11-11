@@ -21,15 +21,23 @@ function createCard() {
   const cardTitle = document.createElement("h3");
   cardTitle.innerText = title;
 
-  // Date and name div
+  // Date and assignee info
   const nameDateDiv = document.createElement("div");
   nameDateDiv.className = "name_date";
 
   const cardDate = document.createElement("p");
   cardDate.className = "card_date";
   cardDate.innerText = formattedDate;
-
   nameDateDiv.appendChild(cardDate);
+
+  // Get selected assignee
+  const assigneeRadio = document.querySelector("input[name='person']:checked");
+  if (assigneeRadio) {
+    const assigneeName = assigneeRadio.nextElementSibling.innerText.split(' ')[0];
+    const assigneeInfo = document.createElement("p");
+    assigneeInfo.innerHTML = `Assigned to <span>${assigneeName}</span>`;
+    nameDateDiv.appendChild(assigneeInfo);
+  }
   card.appendChild(cardTitle);
   card.appendChild(nameDateDiv);
 
@@ -41,36 +49,47 @@ function createCard() {
     card.appendChild(desc);
   }
 
-  // Create subtasks section
+  // Get selected labels
+  const labelsContainer = document.createElement("div");
+  labelsContainer.className = "labels-container";
+  const selectedLabels = document.querySelectorAll(".labels .label-button.selected");
+
+  selectedLabels.forEach(label => {
+    const labelClone = label.cloneNode(true); // Clone label to keep original styling
+    labelClone.classList.remove("selected"); // Remove selection style
+    labelsContainer.appendChild(labelClone);
+  });
+
+  if (labelsContainer.children.length > 0) {
+    card.appendChild(labelsContainer);
+  }
+
+  // Get subtasks
   const subTasksContainer = document.createElement("div");
   subTasksContainer.className = "sub-tasks-oncard";
-
-  // Get subtasks from the input container
   const subTasks = document.getElementById("sub-tasks").children;
-  Array.from(subTasks).forEach((subtask) => {
-    const checkbox = subtask.querySelector("input[type='checkbox']");
-    const subtaskText = subtask.querySelector("input[type='text']").value.trim();
 
-    if (subtaskText) {
-      // Create subtask element for the card
+  Array.from(subTasks).forEach(subtask => {
+    const subCheckbox = subtask.querySelector("input[type='checkbox']");
+    const subInput = subtask.querySelector("input[type='text']").value.trim();
+
+    if (subInput) {
       const subtaskDiv = document.createElement("div");
       subtaskDiv.className = "subtask-checkbox-oncard";
 
       const subtaskCheckbox = document.createElement("input");
       subtaskCheckbox.type = "checkbox";
-      subtaskCheckbox.checked = checkbox.checked;
+      subtaskCheckbox.checked = subCheckbox.checked;
 
       const subtaskLabel = document.createElement("p");
-      subtaskLabel.innerText = subtaskText;
+      subtaskLabel.innerText = subInput;
 
       subtaskDiv.appendChild(subtaskCheckbox);
       subtaskDiv.appendChild(subtaskLabel);
-
       subTasksContainer.appendChild(subtaskDiv);
     }
   });
 
-  // Add subtasks container to card if there are subtasks
   if (subTasksContainer.children.length > 0) {
     card.appendChild(subTasksContainer);
   }
@@ -82,8 +101,17 @@ function createCard() {
   document.getElementById("title").value = "";
   document.getElementById("description").value = "";
   document.getElementById("sub-tasks").innerHTML = ""; // Clear all subtasks
+
+  // Remove selected state from labels
+  selectedLabels.forEach(label => label.classList.remove("selected"));
+
+  // Clear the selected assignee
+  if (assigneeRadio) {
+    assigneeRadio.checked = false;
+  }
 }
 
+// Function to create a new subtask input field
 function createSubtask() {
   const subContainer = document.createElement("div");
   subContainer.className = "subtask-checkbox";
@@ -93,7 +121,7 @@ function createSubtask() {
 
   const subInput = document.createElement("input");
   subInput.type = "text";
-  subInput.placeholder = "Placeholder";
+  subInput.placeholder = "Subtask";
 
   subContainer.appendChild(subCheckbox);
   subContainer.appendChild(subInput);

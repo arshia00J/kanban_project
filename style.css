@@ -3,11 +3,14 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  height: 100vh;
 }
 /* Container for both sections */
 .container {
   display: flex;
   width: 100%;
+  height: 100vh;
+
 }
 
 /* Left section, 30% width */
@@ -15,7 +18,8 @@ body {
   width: 366px;
   background-color: #fff;
   padding: 24px;
-  height: 100%;
+  height: 100vh;
+
 }
 .left-section #title {
   font-weight: 700;
@@ -97,14 +101,154 @@ textarea {
 
 #sub-tasks{
     margin-bottom: 32px;
-    height: 120px;
+    height: 78px;
     overflow-y: scroll;
+}
+
+#label-container{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+
+#label-container img{
+    width: 24px;
+    height: 24px;
+    margin: none;
+}
+
+#label-container p{
+    color: #1D2939;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.labels,
+.right-section .column .card .labels-container{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.labels button,
+.right-section .column .card .labels-container button{
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    cursor: pointer;
+}
+
+
+.labels button:nth-child(1),
+.right-section .column .card .labels-container button:nth-child(1) {
+  background-color: #f7d4ff;
+  color: #a300f4;
+}
+.labels button:nth-child(2),
+.right-section .column .card .labels-container button:nth-child(2) {
+  background-color: #d1fadf;
+  color: #12b76a;
+}
+.labels button:nth-child(3),
+.right-section .column .card .labels-container button:nth-child(3) {
+  background-color: #dfdaff;
+  color: #3d24f6;
+}
+.labels button:nth-child(4),
+.right-section .column .card .labels-container button:nth-child(4) {
+  background-color: #ffdfdf;
+  color: #ff1616;
+}
+.labels button:nth-child(5),
+.right-section .column .card .labels-container button:nth-child(5) {
+  background-color: #d1faf7;
+  color: #00dbc2;
+}
+.labels button:nth-child(6),
+.right-section .column .card .labels-container button:nth-child(6) {
+  background-color: #fafad1;
+  color: #ebbc00;
+}
+
+.right-section .column .card .labels-container button{
+  margin-top: 16px;
+  cursor: auto;
+}
+
+/* Selected state styles */
+.labels button.selected:nth-child(1) {
+  border: #a300f4 solid 1px;
+}
+.labels button.selected:nth-child(2) {
+  border: #12b76a solid 1px;
+}
+.labels button.selected:nth-child(3) {
+  border: #3d24f6 solid 1px;
+}
+.labels button.selected:nth-child(4) {
+  border: #ff1616 solid 1px;
+}
+.labels button.selected:nth-child(5) {
+  border: #00dbc2 solid 1px;
+}
+.labels button.selected:nth-child(6) {
+  border: #ebbc00 solid 1px;
+}
+
+
+#assignee-container{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 0px;
+}
+
+#assignee-container img{
+  width: 24px;
+  height: 24px;
+  margin: none;
+}
+
+#assignee-container p{
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.persons div{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  align-content: center;
+}
+
+.persons div input{
+  width: 18px;
+  height: 18px;
+  margin: 0px;
+}
+
+.persons div p{
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22.5px;
 }
 
 #action-buttons {
   display: flex;
   gap: 12px;
 }
+
+
 
 #action-buttons #clear_all {
   background-color: #fff;
@@ -167,7 +311,7 @@ textarea {
   flex-direction: column;
   gap: 24px;
   overflow-y: scroll;
-  height: 60vh;
+  height: 100vh;
 }
 
 h2 {
@@ -246,3 +390,5 @@ overflow-y: scroll;
     line-height: 24px;
     color: #2B2D31;
 }
+
+
