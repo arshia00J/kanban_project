@@ -3,14 +3,12 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  height: 100vh;
 }
 /* Container for both sections */
 .container {
   display: flex;
   width: 100%;
-  height: 100vh;
-
+  height: 90vh;
 }
 
 /* Left section, 30% width */
@@ -18,8 +16,7 @@ body {
   width: 366px;
   background-color: #fff;
   padding: 24px;
-  height: 100vh;
-
+  height: 90vh;
 }
 .left-section #title {
   font-weight: 700;
@@ -99,85 +96,83 @@ textarea {
   color: #414141;
 }
 
-#sub-tasks{
-    margin-bottom: 32px;
-    height: 78px;
-    overflow-y: scroll;
+#sub-tasks {
+  margin-bottom: 32px;
+  height: 78px;
+  overflow-y: scroll;
 }
 
-#label-container{
-    display: flex;
-    gap: 8px;
-    align-items: center;
+#label-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-
-#label-container img{
-    width: 24px;
-    height: 24px;
-    margin: none;
+#label-container img {
+  width: 24px;
+  height: 24px;
+  margin: none;
 }
 
-#label-container p{
-    color: #1D2939;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
+#label-container p {
+  color: #1d2939;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 .labels,
-.right-section .column .card .labels-container{
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
+.right-section .column .card .labels-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
 .labels button,
-.right-section .column .card .labels-container button{
-    border: none;
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
-    cursor: pointer;
+.right-section .column .card .labels-container button {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  cursor: pointer;
 }
 
-
-.labels button:nth-child(1),
-.right-section .column .card .labels-container button:nth-child(1) {
+.labels #design,
+.right-section .column .card .labels-container #design {
   background-color: #f7d4ff;
   color: #a300f4;
 }
-.labels button:nth-child(2),
-.right-section .column .card .labels-container button:nth-child(2) {
+.labels #development,
+.right-section .column .card .labels-container #development {
   background-color: #d1fadf;
   color: #12b76a;
 }
-.labels button:nth-child(3),
-.right-section .column .card .labels-container button:nth-child(3) {
+.labels #product,
+.right-section .column .card .labels-container #product {
   background-color: #dfdaff;
   color: #3d24f6;
 }
-.labels button:nth-child(4),
-.right-section .column .card .labels-container button:nth-child(4) {
+.labels #marketing,
+.right-section .column .card .labels-container #marketing {
   background-color: #ffdfdf;
   color: #ff1616;
 }
-.labels button:nth-child(5),
-.right-section .column .card .labels-container button:nth-child(5) {
+.labels #business,
+.right-section .column .card .labels-container #business {
   background-color: #d1faf7;
   color: #00dbc2;
 }
-.labels button:nth-child(6),
-.right-section .column .card .labels-container button:nth-child(6) {
+.labels #operation,
+.right-section .column .card .labels-container #operation {
   background-color: #fafad1;
   color: #ebbc00;
 }
 
-.right-section .column .card .labels-container button{
+.right-section .column .card .labels-container button {
   margin-top: 16px;
   cursor: auto;
 }
@@ -202,28 +197,27 @@ textarea {
   border: #ebbc00 solid 1px;
 }
 
-
-#assignee-container{
+#assignee-container {
   display: flex;
   gap: 8px;
   align-items: center;
   padding: 12px 0px;
 }
 
-#assignee-container img{
+#assignee-container img {
   width: 24px;
   height: 24px;
   margin: none;
 }
 
-#assignee-container p{
+#assignee-container p {
   color: #000;
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
 }
 
-.persons div{
+.persons div {
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -231,13 +225,13 @@ textarea {
   align-content: center;
 }
 
-.persons div input{
+.persons div input {
   width: 18px;
   height: 18px;
   margin: 0px;
 }
 
-.persons div p{
+.persons div p {
   font-size: 15px;
   font-weight: 500;
   line-height: 22.5px;
@@ -245,10 +239,11 @@ textarea {
 
 #action-buttons {
   display: flex;
+  flex-direction: row;
+  bottom: 24px;
+  position: absolute;
   gap: 12px;
 }
-
-
 
 #action-buttons #clear_all {
   background-color: #fff;
@@ -363,32 +358,29 @@ h2 {
   padding: 0;
 }
 
-
-.right-section .column .card .sub-tasks-oncard{
-margin-top: 12px;
-height: 130px;
-overflow-y: scroll;
+.right-section .column .card .sub-tasks-oncard {
+  margin-top: 12px;
+  max-height: 130px;
+  overflow-y: scroll;
 }
 
-.right-section .column .card .subtask-checkbox-oncard{
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    align-content: center;
-    align-items: center;
-    padding: 11px 8px;
+.right-section .column .card .subtask-checkbox-oncard {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-content: center;
+  align-items: center;
+  padding: 11px 8px;
 }
 
-.right-section .column .card .subtask-checkbox-oncard input{
-    width: 18px;
-    height: 18px;
+.right-section .column .card .subtask-checkbox-oncard input {
+  width: 18px;
+  height: 18px;
 }
 
-.right-section .column .card .subtask-checkbox-oncard p{
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-    color: #2B2D31;
+.right-section .column .card .subtask-checkbox-oncard p {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #2b2d31;
 }
-
-

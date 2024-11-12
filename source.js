@@ -1,11 +1,11 @@
 function createCard() {
-  const title = document.getElementById("title").value.trim();
-  const description = document.getElementById("description").value.trim();
-
+  const title = document.getElementById("title").value;
   if (title === "") {
     alert("Please enter a title for the card.");
     return;
   }
+
+  const description = document.getElementById("description").value;
 
   const today = new Date();
   const formattedDate = today.toLocaleDateString("en-US", {
@@ -33,7 +33,8 @@ function createCard() {
   // Get selected assignee
   const assigneeRadio = document.querySelector("input[name='person']:checked");
   if (assigneeRadio) {
-    const assigneeName = assigneeRadio.nextElementSibling.innerText.split(' ')[0];
+    const assigneeName =
+      assigneeRadio.nextElementSibling.innerText.split(" ")[0];
     const assigneeInfo = document.createElement("p");
     assigneeInfo.innerHTML = `Assigned to <span>${assigneeName}</span>`;
     nameDateDiv.appendChild(assigneeInfo);
@@ -49,27 +50,12 @@ function createCard() {
     card.appendChild(desc);
   }
 
-  // Get selected labels
-  const labelsContainer = document.createElement("div");
-  labelsContainer.className = "labels-container";
-  const selectedLabels = document.querySelectorAll(".labels .label-button.selected");
-
-  selectedLabels.forEach(label => {
-    const labelClone = label.cloneNode(true); // Clone label to keep original styling
-    labelClone.classList.remove("selected"); // Remove selection style
-    labelsContainer.appendChild(labelClone);
-  });
-
-  if (labelsContainer.children.length > 0) {
-    card.appendChild(labelsContainer);
-  }
-
-  // Get subtasks
+  // Get subtasks (appending subtasks first)
   const subTasksContainer = document.createElement("div");
   subTasksContainer.className = "sub-tasks-oncard";
   const subTasks = document.getElementById("sub-tasks").children;
 
-  Array.from(subTasks).forEach(subtask => {
+  Array.from(subTasks).forEach((subtask) => {
     const subCheckbox = subtask.querySelector("input[type='checkbox']");
     const subInput = subtask.querySelector("input[type='text']").value.trim();
 
@@ -91,7 +77,24 @@ function createCard() {
   });
 
   if (subTasksContainer.children.length > 0) {
-    card.appendChild(subTasksContainer);
+    card.appendChild(subTasksContainer); // Append subtasks first
+  }
+
+  // Get selected labels (appending labels after subtasks)
+  const labelsContainer = document.createElement("div");
+  labelsContainer.className = "labels-container";
+  const selectedLabels = document.querySelectorAll(
+    ".labels .label-button.selected"
+  );
+
+  selectedLabels.forEach((label) => {
+    const labelClone = label.cloneNode(true); // Clone label to keep original styling
+    labelClone.classList.remove("selected"); // Remove selection style
+    labelsContainer.appendChild(labelClone);
+  });
+
+  if (labelsContainer.children.length > 0) {
+    card.appendChild(labelsContainer); // Append labels after subtasks
   }
 
   // Add the card to the TODO column
@@ -103,7 +106,7 @@ function createCard() {
   document.getElementById("sub-tasks").innerHTML = ""; // Clear all subtasks
 
   // Remove selected state from labels
-  selectedLabels.forEach(label => label.classList.remove("selected"));
+  selectedLabels.forEach((label) => label.classList.remove("selected"));
 
   // Clear the selected assignee
   if (assigneeRadio) {

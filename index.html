@@ -31,17 +31,17 @@
         </div>
 
         <div id="label-container">
-            <img src="icons/label.png" alt="" />
-            <p>Label</p>
+          <img src="icons/label.png" alt="" />
+          <p>Label</p>
         </div>
 
         <div class="labels">
-          <button class="label-button">Design</button>
-          <button class="label-button">Development</button>
-          <button class="label-button">Product</button>
-          <button class="label-button">Marketing</button>
-          <button class="label-button">Business</button>
-          <button class="label-button">Operation</button>
+          <button class="label-button" id="design">Design</button>
+          <button class="label-button" id="development">Development</button>
+          <button class="label-button" id="product">Product</button>
+          <button class="label-button" id="marketing">Marketing</button>
+          <button class="label-button" id="business">Business</button>
+          <button class="label-button" id="operation">Operation</button>
         </div>
 
         <div id="assignee-container">
@@ -50,19 +50,18 @@
         </div>
         <div class="persons">
           <div>
-            <input type="radio" name="person">
-            <p>Taha Hosseinpour</p>
+            <input type="radio" name="person" id="person1" />
+            <label for="person1">Taha Hosseinpour</label>
           </div>
           <div>
-            <input type="radio" name="person">
-            <p>Arshia Jafari</p>
+            <input type="radio" name="person" id="person2" />
+            <label for="person2">Arshia Jafari</label>
           </div>
           <div>
-            <input type="radio" name="person">
-            <p>S.h Mostafavi</p>
+            <input type="radio" name="person" id="person3" />
+            <label for="person3">S.h Mostafavi</label>
           </div>
         </div>
-        
 
         <div id="action-buttons">
           <button id="clear_all">Clear All</button>
@@ -72,48 +71,7 @@
       <div class="right-section">
         <div id="column1" class="column">
           <h2>TO DO</h2>
-          <div id="todo-column">
-            <div class="card">
-              <h3>Make a Kanban App</h3>
-              <div class="name_date">
-                <p class="card_date">12 jan</p>
-                <p>Assigned to <span>Taha</span></p>
-              </div>
-
-              <p class="desc">
-                Please use trello and designs in Dribbble as reference. And
-                carry on...
-              </p>
-
-              <div class="sub-tasks-oncard">
-                <div class="subtask-checkbox-oncard">
-                  <input type="checkbox">
-                  <p>Create an app</p>
-                </div>
-
-                <div class="subtask-checkbox-oncard">
-                  <input type="checkbox">
-                  <p>Create an app</p>
-                </div>
-                
-                
-                <div class="subtask-checkbox-oncard">
-                  <input type="checkbox">
-                  <p>Create an app</p>
-                </div>
-
-
-                
-                <div class="subtask-checkbox-oncard">
-                  <input type="checkbox">
-                  <p>Create an app</p>
-                </div>
-
-                
-              </div>
-
-            </div>
-          </div>
+          <div id="todo-column"></div>
         </div>
         <div id="column2" class="column">
           <h2>DOING</h2>
@@ -126,17 +84,12 @@
       </div>
     </div>
 
-
-
-
     <script>
-      document.querySelectorAll('.labels .label-button').forEach(button => {
-        button.addEventListener('click', () => {
-          button.classList.toggle('selected');
+      document.querySelectorAll(".labels .label-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          button.classList.toggle("selected");
         });
       });
     </script>
-
-
   </body>
 </html>
