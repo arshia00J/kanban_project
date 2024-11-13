@@ -13,18 +13,15 @@ function createCard() {
     month: "short",
   });
 
-  // Create card element
   const card = document.createElement("div");
   card.className = "card";
   card.draggable = true;
   card.ondragstart = drag;
   card.id = "card-" + Date.now();
 
-  // Card title
   const cardTitle = document.createElement("h3");
   cardTitle.innerText = title;
 
-  // Date and assignee info
   const nameDateDiv = document.createElement("div");
   nameDateDiv.className = "name_date";
 
@@ -33,7 +30,6 @@ function createCard() {
   cardDate.innerText = formattedDate;
   nameDateDiv.appendChild(cardDate);
 
-  // Get selected assignee
   const assigneeRadio = document.querySelector("input[name='person']:checked");
   if (assigneeRadio) {
     const assigneeName =
@@ -45,7 +41,6 @@ function createCard() {
   card.appendChild(cardTitle);
   card.appendChild(nameDateDiv);
 
-  // Add description if available
   if (description) {
     const desc = document.createElement("p");
     desc.className = "desc";
@@ -53,14 +48,13 @@ function createCard() {
     card.appendChild(desc);
   }
 
-  // Get subtasks (appending subtasks first)
   const subTasksContainer = document.createElement("div");
   subTasksContainer.className = "sub-tasks-oncard";
   const subTasks = document.getElementById("sub-tasks").children;
 
   Array.from(subTasks).forEach((subtask) => {
     const subCheckbox = subtask.querySelector("input[type='checkbox']");
-    const subInput = subtask.querySelector("input[type='text']").value.trim();
+    const subInput = subtask.querySelector("input[type='text']").value;
 
     if (subInput) {
       const subtaskDiv = document.createElement("div");
@@ -80,10 +74,9 @@ function createCard() {
   });
 
   if (subTasksContainer.children.length > 0) {
-    card.appendChild(subTasksContainer); // Append subtasks first
+    card.appendChild(subTasksContainer);
   }
 
-  // Get selected labels (appending labels after subtasks)
   const labelsContainer = document.createElement("div");
   labelsContainer.className = "labels-container";
   const selectedLabels = document.querySelectorAll(
@@ -91,33 +84,28 @@ function createCard() {
   );
 
   selectedLabels.forEach((label) => {
-    const labelClone = label.cloneNode(true); // Clone label to keep original styling
-    labelClone.classList.remove("selected"); // Remove selection style
+    const labelClone = label.cloneNode(true);
+    labelClone.classList.remove("selected");
     labelsContainer.appendChild(labelClone);
   });
 
   if (labelsContainer.children.length > 0) {
-    card.appendChild(labelsContainer); // Append labels after subtasks
+    card.appendChild(labelsContainer);
   }
 
-  // Add the card to the TODO column
   document.getElementById("todo-column").appendChild(card);
 
-  // Clear form inputs
   document.getElementById("title").value = "";
   document.getElementById("description").value = "";
-  document.getElementById("sub-tasks").innerHTML = ""; // Clear all subtasks
+  document.getElementById("sub-tasks").innerHTML = "";
 
-  // Remove selected state from labels
   selectedLabels.forEach((label) => label.classList.remove("selected"));
 
-  // Clear the selected assignee
   if (assigneeRadio) {
     assigneeRadio.checked = false;
   }
 }
 
-// Function to create a new subtask input field
 function createSubtask() {
   const subContainer = document.createElement("div");
   subContainer.className = "subtask-checkbox";
@@ -139,12 +127,10 @@ function allowDrop(event) {
   event.preventDefault();
 }
 
-// تابعی برای شروع درگ و ذخیره شناسه کارت
 function drag(event) {
   event.dataTransfer.setData("text/plain", event.target.id);
 }
 
-// تابعی برای رها کردن کارت در ستون مقصد
 function drop(event) {
   event.preventDefault();
   const cardId = event.dataTransfer.getData("text/plain");
