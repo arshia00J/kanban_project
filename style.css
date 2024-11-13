@@ -301,12 +301,15 @@ textarea {
   flex-direction: column;
 }
 
-.column #todo-column {
+.column #todo-column,
+#doing-column,
+#done-column {
   display: flex;
   flex-direction: column;
   gap: 24px;
   overflow-y: scroll;
   height: 100vh;
+  width: 100%;
 }
 
 h2 {

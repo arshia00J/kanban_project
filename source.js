@@ -16,6 +16,9 @@ function createCard() {
   // Create card element
   const card = document.createElement("div");
   card.className = "card";
+  card.draggable = true;
+  card.ondragstart = drag;
+  card.id = "card-" + Date.now();
 
   // Card title
   const cardTitle = document.createElement("h3");
@@ -130,4 +133,23 @@ function createSubtask() {
   subContainer.appendChild(subInput);
 
   document.getElementById("sub-tasks").appendChild(subContainer);
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+// تابعی برای شروع درگ و ذخیره شناسه کارت
+function drag(event) {
+  event.dataTransfer.setData("text/plain", event.target.id);
+}
+
+// تابعی برای رها کردن کارت در ستون مقصد
+function drop(event) {
+  event.preventDefault();
+  const cardId = event.dataTransfer.getData("text/plain");
+  const card = document.getElementById(cardId);
+  if (card) {
+    event.target.closest(".column").querySelector("div").appendChild(card);
+  }
 }
