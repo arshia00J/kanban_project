@@ -140,7 +140,6 @@ function drop(event) {
   }
 }
 
-
 function clearAll() {
   let todo = document.getElementById("todo-column");
   let doing = document.getElementById("doing-column");

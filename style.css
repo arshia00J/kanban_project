@@ -4,7 +4,7 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: red;
+  background-color: #96939B;
   height: 100%;
 }
 .container {
@@ -84,6 +84,7 @@ textarea {
 .subtask-checkbox {
   display: flex;
   padding: 8px 0;
+  align-items: center;
 }
 .subtask-checkbox input:first-child {
   width: 18px;
@@ -255,7 +256,7 @@ textarea {
   font-size: 16px;
   line-height: 24px;
   cursor: pointer;
-  width: 97px;
+  width: 30%;
   height: 48px;
 }
 #action-buttons #clear_all:hover {
@@ -273,7 +274,7 @@ textarea {
   font-size: 16px;
   line-height: 24px;
   cursor: pointer;
-  width: 209px;
+  width: 70%;
   height: 48px;
 }
 
