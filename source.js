@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+  loadBoardState();
+
+  document.querySelectorAll(".labels .label-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("selected");
+    });
+  });
+});
+
 function createCard() {
   const title = document.getElementById("title").value;
   if (title === "") {
@@ -104,6 +114,8 @@ function createCard() {
   if (assigneeRadio) {
     assigneeRadio.checked = false;
   }
+
+  saveBoardState();
 }
 
 function createSubtask() {
@@ -137,15 +149,55 @@ function drop(event) {
   const card = document.getElementById(cardId);
   if (card) {
     event.target.closest(".column").querySelector("div").appendChild(card);
+    saveBoardState();
   }
 }
 
 function clearAll() {
-  let todo = document.getElementById("todo-column");
-  let doing = document.getElementById("doing-column");
-  let done = document.getElementById("done-column");
+  document.getElementById("todo-column").innerHTML = "";
+  document.getElementById("doing-column").innerHTML = "";
+  document.getElementById("done-column").innerHTML = "";
 
-  todo.innerHTML = "";
-  doing.innerHTML = "";
-  done.innerHTML = "";
+  saveBoardState();
+}
+
+function saveBoardState() {
+  const boardState = {
+    todo: getColumnState("todo-column"),
+    doing: getColumnState("doing-column"),
+    done: getColumnState("done-column"),
+  };
+  localStorage.setItem("kanbanBoardState", JSON.stringify(boardState));
+}
+
+function loadBoardState() {
+  const boardState = JSON.parse(localStorage.getItem("kanbanBoardState"));
+  if (!boardState) return;
+
+  restoreColumnState("todo-column", boardState.todo);
+  restoreColumnState("doing-column", boardState.doing);
+  restoreColumnState("done-column", boardState.done);
+}
+
+function getColumnState(columnId) {
+  const column = document.getElementById(columnId);
+  return Array.from(column.children).map((card) => ({
+    id: card.id,
+    html: card.outerHTML,
+  }));
+}
+
+function restoreColumnState(columnId, cards) {
+  const column = document.getElementById(columnId);
+  column.innerHTML = "";
+  cards.forEach((cardData) => {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = cardData.html;
+    const card = tempDiv.firstChild;
+
+    // Reattach drag events
+    card.ondragstart = drag;
+
+    column.appendChild(card);
+  });
 }

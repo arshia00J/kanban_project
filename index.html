@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="source.js"></script>
-
+    <script src="source.js" defer></script>
     <title>Kanban</title>
   </head>
   <body>
     <div class="container">
+      <!-- Left Section -->
       <div class="left-section">
         <input id="title" type="text" placeholder="Title *" required />
         <textarea id="description" placeholder="Description"></textarea>
@@ -23,12 +23,7 @@
           </button>
         </div>
 
-        <div id="sub-tasks">
-          <div class="subtask-checkbox">
-            <input type="checkbox" />
-            <input type="text" placeholder="Placeholder" />
-          </div>
-        </div>
+        <div id="sub-tasks"></div>
 
         <div id="label-container">
           <img src="icons/label.png" alt="" />
@@ -68,11 +63,14 @@
           <button id="create_card" onclick="createCard()">Create Card</button>
         </div>
       </div>
+
+      <!-- Right Section -->
       <div class="right-section">
         <div id="column1" class="column">
           <h2>TO DO</h2>
           <div
             id="todo-column"
+            class="card-column"
             ondrop="drop(event)"
             ondragover="allowDrop(event)"
           ></div>
@@ -81,6 +79,7 @@
           <h2>DOING</h2>
           <div
             id="doing-column"
+            class="card-column"
             ondrop="drop(event)"
             ondragover="allowDrop(event)"
           ></div>
@@ -89,19 +88,12 @@
           <h2>DONE</h2>
           <div
             id="done-column"
+            class="card-column"
             ondrop="drop(event)"
             ondragover="allowDrop(event)"
           ></div>
         </div>
       </div>
     </div>
-
-    <script>
-      document.querySelectorAll(".labels .label-button").forEach((button) => {
-        button.addEventListener("click", () => {
-          button.classList.toggle("selected");
-        });
-      });
-    </script>
   </body>
 </html>

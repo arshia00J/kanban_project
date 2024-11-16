@@ -4,7 +4,7 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #96939B;
+  background-color: #96939b;
   height: 100%;
 }
 .container {
@@ -100,9 +100,9 @@ textarea {
 }
 
 #sub-tasks {
-  margin-bottom: 32px;
-  height: 78px;
+  height: 150px;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 #label-container {
@@ -309,6 +309,8 @@ textarea {
   flex-direction: column;
   gap: 24px;
   overflow-y: scroll;
+  scrollbar-width: none;
+
   height: 100vh;
   width: 320px;
 }
@@ -367,6 +369,7 @@ h2 {
   margin-top: 12px;
   max-height: 130px;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .right-section .column .card .subtask-checkbox-oncard {
@@ -414,6 +417,9 @@ h2 {
   #done-column {
     overflow-y: visible;
     height: 700px;
+  }
+  #done-column {
+    margin-right: 60px;
   }
   .right-section .column {
     width: 100%;
